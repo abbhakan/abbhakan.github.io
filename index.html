@@ -1,1 +1,28 @@
-"Hello World" 
+<html>
+    <body>
+        <h1>My Test</h1>
+        <script type="text/javascript">
+
+        window.onload = function(){ 
+            var submitbutton = document.getElementsByClassName("submit-button")[0];
+                        submitbutton.onclick = function(){
+                var currentUrl = document.referrer;
+                parent.postMessage(currentUrl, currentUrl);
+            }
+        };        
+
+        (function() {
+            
+            // disable submission of all forms on this page
+            for (var i=0, len=document.forms.length; i<len; i++) {
+                document.forms[i].onsubmit = function() { return false; };
+            }
+            
+        }());
+        </script>
+
+        <button type="button" class="submit-button">submit</button>
+    </body>
+</html>
+
+ 
