@@ -5,15 +5,18 @@
 
         window.onload = function(){ 
             var submitbutton = document.getElementsByClassName("submit-button")[0];
-                        submitbutton.onclick = function(){
-                var parentUrl = document.referrer;
+            submitbutton.addEventListener("click", postMessage)
+            setTimeout(postMessage, 3000);                            
+        };        
+
+        function postMessage() {
+            var parentUrl = document.referrer;
                 var returnObject = {
                     parentUrl: parentUrl,
                     value: "Yes"
                 };
                 parent.postMessage(returnObject, parentUrl);
-            }
-        };        
+        };
 
         (function() {
             
