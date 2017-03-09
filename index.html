@@ -5,7 +5,7 @@
 
         window.onload = function(){ 
             var submitbutton = document.getElementsByClassName("submit-button")[0];
-            submitbutton.addEventListener("click", postMessage)                                         
+            submitbutton.addEventListener("click", setTimeout(postMessage, 10000))                                         
         };        
 
         function postMessage() {            
@@ -14,8 +14,11 @@
                 parentUrl: parentUrl,
                 value: "Yes"
             };
-
-            setTimeout(function () { parent.postMessage(returnObject, parentUrl); }, 10000);                
+            
+            var validationErrors = document.getElementsByClassName("LV_invalid_Field"); 
+            if (validationErrors == null || validationErrors.length == 0) {
+                parent.postMessage(returnObject, parentUrl);
+            }                            
         };
 
         (function() {
