@@ -5,7 +5,9 @@
 
         window.onload = function(){ 
             var submitbutton = document.getElementsByClassName("submit-button")[0];
-            submitbutton.addEventListener("click", setTimeout(postMessage, 10000))                                         
+            submitbutton.addEventListener("click", function() {
+                setTimeout(postMessage, 10000);
+            });                                         
         };        
 
         function postMessage() {            
