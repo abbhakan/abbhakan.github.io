@@ -15,7 +15,7 @@
                 value: "Yes"
             };
 
-            setTimeout(parent.postMessage(returnObject, parentUrl), 10000);                
+            setTimeout(function () { parent.postMessage(returnObject, parentUrl); }, 10000);                
         };
 
         (function() {
